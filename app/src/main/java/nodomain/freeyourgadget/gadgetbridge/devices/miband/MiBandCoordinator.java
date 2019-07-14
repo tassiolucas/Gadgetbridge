@@ -22,10 +22,11 @@ import android.app.Activity;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.le.ScanFilter;
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Build;
 import android.os.ParcelUuid;
+
+import androidx.annotation.NonNull;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -33,7 +34,6 @@ import org.slf4j.LoggerFactory;
 import java.util.Collection;
 import java.util.Collections;
 
-import androidx.annotation.NonNull;
 import de.greenrobot.dao.query.QueryBuilder;
 import nodomain.freeyourgadget.gadgetbridge.GBApplication;
 import nodomain.freeyourgadget.gadgetbridge.GBException;

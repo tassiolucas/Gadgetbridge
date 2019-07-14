@@ -20,10 +20,8 @@ package nodomain.freeyourgadget.gadgetbridge.service.btle.actions;
 import android.bluetooth.BluetoothGatt;
 import android.bluetooth.BluetoothGattCallback;
 import android.bluetooth.BluetoothGattCharacteristic;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import nodomain.freeyourgadget.gadgetbridge.Logging;
 import nodomain.freeyourgadget.gadgetbridge.service.btle.BtLEAction;
 

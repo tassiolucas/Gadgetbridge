@@ -30,6 +30,7 @@ public class VibrationProfile {
     public static final String ID_WATERDROP;
     public static final String ID_RING;
     public static final String ID_ALARM_CLOCK;
+    public static final String ID_SUPER_FAST_TEST;
 
     static {
         Context CONTEXT = GBApplication.getContext();
@@ -40,6 +41,7 @@ public class VibrationProfile {
         ID_WATERDROP = CONTEXT.getString(R.string.p_waterdrop);
         ID_RING = CONTEXT.getString(R.string.p_ring);
         ID_ALARM_CLOCK = CONTEXT.getString(R.string.p_alarm_clock);
+        ID_SUPER_FAST_TEST = CONTEXT.getString(R.string.p_super_fast_test);
     }
 
     public static VibrationProfile getProfile(String id, short repeat) {
@@ -60,6 +62,9 @@ public class VibrationProfile {
         }
         if (ID_ALARM_CLOCK.equals(id)) {
             return new VibrationProfile(id, new int[]{30, 35, 30, 35, 30, 35, 30, 800}, repeat);
+        }
+        if (ID_SUPER_FAST_TEST.equals(id)) {
+            return new VibrationProfile(id, new int[]{10, 10, 15, 10, 10, 10, 15, 10}, repeat);
         }
         // medium
         return new VibrationProfile(id, new int[]{300, 600}, repeat);

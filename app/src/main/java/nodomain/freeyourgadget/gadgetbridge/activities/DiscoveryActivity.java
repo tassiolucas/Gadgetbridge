@@ -354,9 +354,9 @@ public class DiscoveryActivity extends AbstractGBActivity implements AdapterView
                 }
             }
         }
-        if (device.getBondState() == BluetoothDevice.BOND_BONDED) {
-            return; // ignore already bonded devices
-        }
+//        if (device.getBondState() == BluetoothDevice.BOND_BONDED) {
+//            return; // ignore already bonded devices
+//        }
 
         GBDeviceCandidate candidate = new GBDeviceCandidate(device, rssi, uuids);
         DeviceType deviceType = DeviceHelper.getInstance().getSupportedType(candidate);

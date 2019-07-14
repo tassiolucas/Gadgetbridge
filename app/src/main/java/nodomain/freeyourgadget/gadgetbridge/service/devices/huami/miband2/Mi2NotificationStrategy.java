@@ -18,7 +18,6 @@
 package nodomain.freeyourgadget.gadgetbridge.service.devices.huami.miband2;
 
 import android.bluetooth.BluetoothGattCharacteristic;
-
 import androidx.annotation.Nullable;
 import nodomain.freeyourgadget.gadgetbridge.devices.miband.VibrationProfile;
 import nodomain.freeyourgadget.gadgetbridge.service.btle.BtLEAction;

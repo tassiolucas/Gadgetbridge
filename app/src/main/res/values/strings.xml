@@ -310,6 +310,7 @@
     <string name="vibration_profile_waterdrop">Waterdrop</string>
     <string name="vibration_profile_ring">Ring</string>
     <string name="vibration_profile_alarm_clock">Alarm clock</string>
+    <string name="vibration_profile_super_fast_test">Super fast test</string>
     <string name="miband_prefs_vibration">Vibration</string>
     <string name="vibration_try">Try</string>
     <string name="pref_screen_notification_profile_sms">SMS notification</string>

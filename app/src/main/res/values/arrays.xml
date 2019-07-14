@@ -103,6 +103,7 @@
         <item>@string/vibration_profile_waterdrop</item>
         <item>@string/vibration_profile_ring</item>
         <item>@string/vibration_profile_alarm_clock</item>
+        <item>@string/vibration_profile_super_fast_test</item>
     </string-array>
     <string-array name="vibration_profile_values">
         <!-- Note: corresponds with IDs in VibrationProfile -->
@@ -113,6 +114,7 @@
         <item>@string/p_waterdrop</item>
         <item>@string/p_ring</item>
         <item>@string/p_alarm_clock</item>
+        <item>@string/p_super_fast_test</item>
     </string-array>
 
     <string-array name="pebble_activitytracker">
