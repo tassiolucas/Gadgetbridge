@@ -57,9 +57,11 @@ public class MiBand4Coordinator extends HuamiCoordinator {
 
     }
 
+
     @Override
     public InstallHandler findInstallHandler(Uri uri, Context context) {
-        return null;
+        MiBand4FWInstallHandler handler = new MiBand4FWInstallHandler(uri, context);
+        return handler.isValid() ? handler : null;
     }
 
     @Override
@@ -78,13 +80,19 @@ public class MiBand4Coordinator extends HuamiCoordinator {
     }
 
     @Override
+    public boolean supportsMusicInfo() {
+        return true;
+    }
+
+    @Override
     public int[] getSupportedDeviceSpecificSettings(GBDevice device) {
         return new int[]{
                 R.xml.devicesettings_miband3,
+                R.xml.devicesettings_dateformat,
                 R.xml.devicesettings_nightmode,
-                R.xml.devicesettings_donotdisturb_withauto,
                 R.xml.devicesettings_liftwrist_display,
                 R.xml.devicesettings_swipeunlock,
+                R.xml.devicesettings_expose_hr_thirdparty,
                 R.xml.devicesettings_pairingkey
         };
     }

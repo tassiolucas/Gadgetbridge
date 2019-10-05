@@ -17,6 +17,7 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>. */
 package nodomain.freeyourgadget.gadgetbridge.util;
 
+import android.content.ActivityNotFoundException;
 import android.content.BroadcastReceiver;
 import android.content.ContentUris;
 import android.content.Context;
@@ -32,6 +33,7 @@ import android.os.Parcelable;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
 import android.text.TextUtils;
+import android.widget.Toast;
 
 import java.io.File;
 import java.io.IOException;
@@ -224,7 +226,11 @@ public class AndroidUtils {
         Uri contentUri = FileProvider.getUriForFile(context,
                 context.getApplicationContext().getPackageName() + ".screenshot_provider", file);
         intent.setFlags(Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION | Intent.FLAG_GRANT_READ_URI_PERMISSION);
-        intent.setData(contentUri);
-        context.startActivity(intent);
+        intent.setDataAndType(contentUri,"application/gpx+xml");
+        try {
+            context.startActivity(intent);
+        } catch (ActivityNotFoundException e) {
+            Toast.makeText(context, R.string.activity_error_no_app_for_gpx, Toast.LENGTH_LONG).show();
+        }
     }
 }

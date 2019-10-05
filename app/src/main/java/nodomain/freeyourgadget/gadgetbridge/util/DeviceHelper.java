@@ -45,6 +45,7 @@ import nodomain.freeyourgadget.gadgetbridge.devices.casiogb6900.CasioGB6900Devic
 import nodomain.freeyourgadget.gadgetbridge.devices.hplus.EXRIZUK8Coordinator;
 import nodomain.freeyourgadget.gadgetbridge.devices.hplus.HPlusCoordinator;
 import nodomain.freeyourgadget.gadgetbridge.devices.hplus.MakibesF68Coordinator;
+import nodomain.freeyourgadget.gadgetbridge.devices.makibeshr3.MakibesHR3Coordinator;
 import nodomain.freeyourgadget.gadgetbridge.devices.hplus.Q8Coordinator;
 import nodomain.freeyourgadget.gadgetbridge.devices.huami.amazfitbip.AmazfitBipCoordinator;
 import nodomain.freeyourgadget.gadgetbridge.devices.huami.amazfitcor.AmazfitCorCoordinator;
@@ -59,6 +60,7 @@ import nodomain.freeyourgadget.gadgetbridge.devices.jyou.TeclastH30Coordinator;
 import nodomain.freeyourgadget.gadgetbridge.devices.liveview.LiveviewCoordinator;
 import nodomain.freeyourgadget.gadgetbridge.devices.miband.MiBandConst;
 import nodomain.freeyourgadget.gadgetbridge.devices.miband.MiBandCoordinator;
+import nodomain.freeyourgadget.gadgetbridge.devices.mijia_lywsd02.MijiaLywsd02Coordinator;
 import nodomain.freeyourgadget.gadgetbridge.devices.miscale2.MiScale2DeviceCoordinator;
 import nodomain.freeyourgadget.gadgetbridge.devices.no1f1.No1F1Coordinator;
 import nodomain.freeyourgadget.gadgetbridge.devices.pebble.PebbleCoordinator;
@@ -226,6 +228,8 @@ public class DeviceHelper {
         result.add(new Roidmi3Coordinator());
         result.add(new CasioGB6900DeviceCoordinator());
         result.add(new BFH16DeviceCoordinator());
+        result.add(new MijiaLywsd02Coordinator());
+        result.add(new MakibesHR3Coordinator());
 
         return result;
     }

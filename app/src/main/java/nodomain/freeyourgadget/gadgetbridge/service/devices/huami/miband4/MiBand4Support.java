@@ -22,12 +22,24 @@ import android.net.Uri;
 import java.io.IOException;
 
 import nodomain.freeyourgadget.gadgetbridge.devices.huami.HuamiFWHelper;
+import nodomain.freeyourgadget.gadgetbridge.devices.huami.miband4.MiBand4FWHelper;
 import nodomain.freeyourgadget.gadgetbridge.service.devices.huami.miband3.MiBand3Support;
+import nodomain.freeyourgadget.gadgetbridge.service.devices.huami.operations.UpdateFirmwareOperationNew;
 
 public class MiBand4Support extends MiBand3Support {
 
     @Override
+    public byte getCryptFlags() {
+        return (byte) 0x80;
+    }
+
+    @Override
     public HuamiFWHelper createFWHelper(Uri uri, Context context) throws IOException {
-        return null;
+        return new MiBand4FWHelper(uri, context);
+    }
+
+    @Override
+    public UpdateFirmwareOperationNew createUpdateFirmwareOperation(Uri uri) {
+        return new UpdateFirmwareOperationNew(uri, this);
     }
 }
