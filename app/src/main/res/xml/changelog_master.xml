@@ -1,5 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <changelog>
+    <release version="0.39.1" versioncode="162">
+        <change>Try to actively re-connect when a connection gets interrupted (interval grows up to 64 seconds)</change>
+        <change>Mi Band2/Amazfip Bip: Make button action settings per-device and enable for Amazfit Bip</change>
+    </release>
+    <release version="0.39.0" versioncode="161">
+        <change>Amazfit GTS: Initial and incomplete support, mostly untested</change>
+        <change>Add forward/backward buttons to charts for faster navigation</change>
+        <change>Debug: allow to reset last fetch date for Huami devices</change>
+    </release>
+    <release version="0.38.0" versioncode="160">
+        <change>Amazfit GTR: Initial and incomplete support, mostly untested</change>
+        <change>Amazfit Bip: add Portuguese to the list of selectable languages</change>
+        <change>Mi Band 4: Enable emoji font setting</change>
+        <change>Makibes HR3: Support the english version</change>
+        <change>Makibes HR3: Enable bluetooth pairing for working reconnection</change>
+        <change>Work around crash when trying to display changelog</change>
+        <change>Sleep detection settings: Rolling 24 hours (existing style) or Noon to noon</change>
+        <change>Add alternative color to heartrate in chart settings</change>
+    </release>
+    <release version="0.37.1" versioncode="159">
+        <change>Amazfit Bip Lite: Support flashing firmware and watchfaces</change>
+    </release>
+    <release version="0.37.0" versioncode="158">
+        <change>Initial Makibes HR3 support</change>
+        <change>Amazfit Bip Lite: Initial working support, firmware update is disabled for now (we do not have any firmware for testing)</change>
+        <change>Amazfit Cor 2: Enable Emoji Font setting and 3rd party HR access</change>
+        <change>Find Phone now also vibration in addition to playing the ring tone</change>
+        <change>ID115: All settings are now per-device</change>
+        <change>Time format settings are now per-device for all supported devices</change>
+        <change>Wrist location settings are now per-device for all supported devices</change>
+        <change>Work around broken layout in database management activity</change>
+        <change>Show toast in case no app is installed which can handle GPX files</change>
+        <change>Mi Band 4/Amazfit Bip Lite: Trim white spaces and new lines from auth key</change>
+        <change>Mi Band 4/Amazfit Bip Lite: Display a toast and do not try to pair if there was no auth key supplied</change>
+        <change>Skip service scan if supported device could be recognized without uuids during discovery</change>
+    </release>
     <release version="0.36.2" versioncode="157">
         <change>Amazfit Bip: Untested support for Lite variant </change>
         <change>Force Lineage OS to ask for permission when Trust is used to fix non-working incoming calls</change>

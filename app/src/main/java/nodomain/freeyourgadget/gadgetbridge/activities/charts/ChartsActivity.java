@@ -1,5 +1,5 @@
 /*  Copyright (C) 2015-2019 Andreas Shimokawa, Carsten Pfeiffer, Daniele
-    Gobbetti, Vebryn
+    Gobbetti, vanous, Vebryn
 
     This file is part of Gadgetbridge.
 
@@ -175,20 +175,52 @@ public class ChartsActivity extends AbstractGBFragmentActivity implements Charts
             }
         });
 
-        Button mPrevButton = findViewById(R.id.charts_previous);
+        Button mPrevButton = findViewById(R.id.charts_previous_day);
         mPrevButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                handlePrevButtonClicked();
+                handleButtonClicked(DATE_PREV_DAY);
             }
         });
-        Button mNextButton = findViewById(R.id.charts_next);
+        Button mNextButton = findViewById(R.id.charts_next_day);
         mNextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                handleNextButtonClicked();
+                handleButtonClicked(DATE_NEXT_DAY);
             }
         });
+
+        Button mPrevWeekButton = findViewById(R.id.charts_previous_week);
+        mPrevWeekButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                handleButtonClicked(DATE_PREV_WEEK);
+            }
+        });
+        Button mNextWeekButton = findViewById(R.id.charts_next_week);
+        mNextWeekButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                handleButtonClicked(DATE_NEXT_WEEK);
+            }
+        });
+
+        Button mPrevMonthButton = findViewById(R.id.charts_previous_month);
+        mPrevMonthButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                handleButtonClicked(DATE_PREV_MONTH);
+            }
+        });
+        Button mNextMonthButton = findViewById(R.id.charts_next_month);
+        mNextMonthButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                handleButtonClicked(DATE_NEXT_MONTH);
+            }
+        });
+
+
     }
 
     private String formatDetailedDuration() {
@@ -229,12 +261,8 @@ public class ChartsActivity extends AbstractGBFragmentActivity implements Charts
         return mEndDate;
     }
 
-    private void handleNextButtonClicked() {
-        LocalBroadcastManager.getInstance(this).sendBroadcast(new Intent(DATE_NEXT));
-    }
-
-    private void handlePrevButtonClicked() {
-        LocalBroadcastManager.getInstance(this).sendBroadcast(new Intent(DATE_PREV));
+    private void handleButtonClicked(String Action) {
+        LocalBroadcastManager.getInstance(this).sendBroadcast(new Intent(Action));
     }
 
     @Override

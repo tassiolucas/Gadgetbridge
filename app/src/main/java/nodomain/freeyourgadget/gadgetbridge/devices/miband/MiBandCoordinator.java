@@ -38,6 +38,7 @@ import de.greenrobot.dao.query.QueryBuilder;
 import nodomain.freeyourgadget.gadgetbridge.GBApplication;
 import nodomain.freeyourgadget.gadgetbridge.GBException;
 import nodomain.freeyourgadget.gadgetbridge.R;
+import nodomain.freeyourgadget.gadgetbridge.activities.devicesettings.DeviceSettingsPreferenceConst;
 import nodomain.freeyourgadget.gadgetbridge.devices.AbstractDeviceCoordinator;
 import nodomain.freeyourgadget.gadgetbridge.devices.InstallHandler;
 import nodomain.freeyourgadget.gadgetbridge.devices.SampleProvider;
@@ -228,10 +229,10 @@ public class MiBandCoordinator extends AbstractDeviceCoordinator {
         return info;
     }
 
-    public static int getWearLocation(String miBandAddress) throws IllegalArgumentException {
+    public static int getWearLocation(String deviceAddress) throws IllegalArgumentException {
         int location = 0; //left hand
-        Prefs prefs = GBApplication.getPrefs();
-        if ("right".equals(prefs.getString(MiBandConst.PREF_MIBAND_WEARSIDE, "left"))) {
+        Prefs prefs = new Prefs(GBApplication.getDeviceSpecificSharedPrefs(deviceAddress));
+        if ("right".equals(prefs.getString(DeviceSettingsPreferenceConst.PREF_WEARLOCATION, "left"))) {
             location = 1; // right hand
         }
         return location;
@@ -261,6 +262,7 @@ public class MiBandCoordinator extends AbstractDeviceCoordinator {
     @Override
     public int[] getSupportedDeviceSpecificSettings(GBDevice device) {
         return new int[]{
+                R.xml.devicesettings_wearlocation,
                 R.xml.devicesettings_lowlatency_fwupdate,
                 R.xml.devicesettings_fake_timeoffset
         };

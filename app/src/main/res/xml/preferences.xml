@@ -256,6 +256,12 @@
 
     <PreferenceCategory
         android:title="@string/preferences_category_device_specific_settings">
+
+        <Preference
+            android:icon="@drawable/ic_device_pebble"
+            android:key="pref_key_qhybrid"
+            android:title="@string/preferences_qhybrid_settings" />
+
         <Preference
             android:icon="@drawable/ic_device_miband"
             android:key="pref_key_miband"
@@ -556,22 +562,6 @@
                 android:key="pref_category_hplus_general"
                 android:title="@string/pref_header_general">
 
-                <ListPreference
-                    android:defaultValue="left"
-                    android:entries="@array/wearside"
-                    android:entryValues="@array/wearside_values"
-                    android:key="hplus_wrist"
-                    android:title="@string/prefs_wearside"
-                    android:summary="%s" />
-
-                <ListPreference
-                    android:defaultValue="24h"
-                    android:entries="@array/pref_timeformat_entries"
-                    android:entryValues="@array/pref_timeformat_values"
-                    android:key="hplus_timeformat"
-                    android:title="@string/pref_title_timeformat"
-                    android:summary="%s" />
-
                 <EditTextPreference
                     android:defaultValue="5"
                     android:key="hplus_screentime"
@@ -586,33 +576,7 @@
             </PreferenceCategory>
 
         </PreferenceScreen>
-
-        <PreferenceScreen
-            android:icon="@drawable/ic_device_h30_h10"
-            android:key="pref_key_id115"
-            android:title="@string/preferences_id115_settings">
-            <PreferenceCategory
-                android:key="pref_category_id115_general"
-                android:title="@string/pref_header_general">
-
-                <ListPreference
-                    android:defaultValue="left"
-                    android:entries="@array/wearside"
-                    android:entryValues="@array/wearside_values"
-                    android:key="id115_wrist"
-                    android:title="@string/prefs_wearside"
-                    android:summary="%s" />
-
-                <ListPreference
-                    android:defaultValue="horizontal"
-                    android:entries="@array/orientation"
-                    android:entryValues="@array/orientation_values"
-                    android:key="id115_screen_orientation"
-                    android:title="@string/prefs_screen_orientation"
-                    android:summary="%s" />
-            </PreferenceCategory>
-        </PreferenceScreen>
-        <Preference
+         <Preference
             android:icon="@drawable/ic_device_zetime"
             android:key="pref_key_zetime"
             android:title="@string/zetime_title_settings"/>
@@ -663,5 +627,12 @@
             android:defaultValue="false"
             android:key="log_to_file"
             android:title="@string/pref_write_logfiles" />
+        <CheckBoxPreference
+            android:layout="@layout/preference_checkbox"
+            android:defaultValue="false"
+            android:key="disable_new_ble_scanning"
+            android:summary="@string/pref_summary_disable_new_ble_scanning"
+            android:title="@string/pref_disable_new_ble_scanning" />
+
     </PreferenceCategory>
 </PreferenceScreen>

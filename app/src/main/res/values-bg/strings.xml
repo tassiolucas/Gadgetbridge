@@ -56,19 +56,19 @@
 \nНе е необходимо да се инсталират .res и .gps файловете ако те са същите като инсталираните по-рано.
 \n
 \nПРОДЪЛЖАВАТЕ НА СВОЯ ОТГОВОРНОСТ!</string>
-    <string name="fw_upgrade_notice_amazfitcor">Ще се инсталира %s firmware на вашия Amazfit Cor. 
-\n 
-\nПърво трябва да се инсталира .fw file и след това .res file. Устройството ще се рестартира след инсталирането на .fw file. 
-\n 
-\nНе е необходимо да се инсталира .res файл, ако е същия като инсталирания по-рано. 
-\n 
+    <string name="fw_upgrade_notice_amazfitcor">Ще се инсталира %s firmware на вашия Amazfit Cor.
+\n
+\nПърво трябва да се инсталира .fw file и след това .res file. Устройството ще се рестартира след инсталирането на .fw file.
+\n
+\nНе е необходимо да се инсталира .res файл, ако е същия като инсталирания по-рано.
+\n
 \nПРОДЪЛЖАВАТЕ НА СВОЯ ОТГОВОРНОСТ!</string>
-    <string name="fw_upgrade_notice_miband3">Ще се инсталира %s firmware на вашия Mi Band 3. 
-\n 
-\nПърво трябва да се инсталира .fw file и след това .res file. Устройството ще се рестартира след инсталирането на .fw file. 
-\n 
-\nНе е необходимо да се инсталира .res файл, ако е същия като инсталирания по-рано. 
-\n 
+    <string name="fw_upgrade_notice_miband3">Ще се инсталира %s firmware на вашия Mi Band 3.
+\n
+\nПърво трябва да се инсталира .fw file и след това .res file. Устройството ще се рестартира след инсталирането на .fw file.
+\n
+\nНе е необходимо да се инсталира .res файл, ако е същия като инсталирания по-рано.
+\n
 \nПРОДЪЛЖАВАТЕ НА СВОЯ ОТГОВОРНОСТ!</string>
     <string name="fw_multi_upgrade_notice">Ще се инсталира %1$s и %2$s firmware, вместо текущия на вашия Mi Band.</string>
     <string name="miband_firmware_known">Този firmware е тестван и е съвместим с Gadgetbridge.</string>
@@ -182,7 +182,6 @@
     <string name="pref_title_screentime">Продължителност на включен екран</string>
     <string name="prefs_title_all_day_heart_rate">Измерване на сърдечния ритъм през целия ден</string>
     <string name="preferences_hplus_settings">HPlus/Makibes настройки</string>
-    <string name="preferences_id115_settings">ID115 настройки</string>
     <string name="prefs_screen_orientation">Ориентация на екрана</string>
     <string name="pref_header_auto_export">Автоматичен експорт</string>
     <string name="pref_title_auto_export_enabled">Включване на автоматичен експорт</string>
@@ -238,10 +237,6 @@
     <string name="message_cannot_pair_no_mac">Липсва MAC адрес, не може да се установи връзка</string>
     <string name="preferences_category_device_specific_settings">Специфични настройки за устройствата</string>
     <string name="preferences_miband_settings">Mi Band / Amazfit настройки</string>
-    <string name="preferences_miband2_settings">Mi Band 2 настройки</string>
-    <string name="preferences_miband3_settings">Mi Band 3 настройки</string>
-    <string name="preferences_amazfitbip_settings">Amazfit Bip настройки</string>
-    <string name="preferences_amazfitcor_settings">Amazfit Cor настройки</string>s
     <string name="male">Мъж</string>
     <string name="female">Жена</string>
     <string name="other">Друг</string>
@@ -305,9 +300,6 @@
     <string name="zetime_calories_type">Вид калории</string>
     <string name="zetime_calories_type_active">Само активно изгорени калории</string>
     <string name="zetime_calories_type_all">Активно и неактивно изгорени калории</string>
-    <string name="zetime_time_format">Часови формат</string>
-    <string name="zetime_time_format_24h">24часа</string>
-    <string name="zetime_time_format_12h">12часа</string>
     <string name="zetime_date_format">Формат на датата</string>
     <string name="zetime_date_format_1">ГГ/ММ/ДД</string>
     <string name="zetime_date_format_2">ДД/ММ/ГГ</string>
@@ -427,4 +419,5 @@
     <string name="live_activity_start_your_activity">Стартирайте активност</string>
     <string name="title_activity_device_specific_settings">Специфични настройки за устройството</string>
     <string name="average">Средно: %1$s</string>
+    <string name="mi2_prefs_button_press_broadcast_default_value" translatable="false">nodomain.freeyourgadget.gadgetbridge.ButtonPressed</string>
 </resources>

@@ -1,5 +1,5 @@
-/*  Copyright (C) 2015-2019 Andreas Shimokawa, Carsten Pfeiffer, Daniele
-    Gobbetti, Felix Konstantin Maurer, Taavi Eomäe, Uwe Hermann, Yar
+/*  Copyright (C) 2015-2019 Andreas Shimokawa, Carsten Pfeiffer, Daniel Dakhno,
+    Daniele Gobbetti, Felix Konstantin Maurer, Taavi Eomäe, Uwe Hermann, Yar
 
     This file is part of Gadgetbridge.
 
@@ -98,7 +98,7 @@ public class GB {
         builder.setContentTitle(deviceName)
                 .setTicker(deviceName + " - " + text)
                 .setContentText(text)
-                .setSmallIcon(connected ? R.drawable.ic_notification : R.drawable.ic_notification_disconnected)
+                .setSmallIcon(connected ? device.getNotificationIconConnected() : device.getNotificationIconDisconnected())
                 .setContentIntent(getContentIntent(context))
                 .setColor(context.getResources().getColor(R.color.accent))
                 .setOngoing(true);

@@ -1,5 +1,5 @@
 /*  Copyright (C) 2015-2019 Andreas Shimokawa, Carsten Pfeiffer, Daniele
-    Gobbetti, José Rebelo, Matthieu Baerts
+    Gobbetti, José Rebelo, Matthieu Baerts, Nephiel, vanous
 
     This file is part of Gadgetbridge.
 
@@ -136,7 +136,7 @@ public abstract class AbstractDeviceCoordinator implements DeviceCoordinator {
     }
 
     @Override
-    public int getBondingStyle(GBDevice device) {
+    public int getBondingStyle() {
         return BONDING_STYLE_ASK;
     }
 
@@ -159,6 +159,7 @@ public abstract class AbstractDeviceCoordinator implements DeviceCoordinator {
         return false;
     }
 
+    @NonNull
     @Override
     public int[] getColorPresets() {
         return new int[0];
