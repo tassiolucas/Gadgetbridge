@@ -25,8 +25,8 @@ android {
         targetSdkVersion 27
 
         // Note: always bump BOTH versionCode and versionName!
-        versionName "0.40.0"
-        versionCode 163
+        versionName "0.42.0"
+        versionCode 167
         vectorDrawables.useSupportLibrary = true
     }
     buildTypes {
@@ -85,11 +85,6 @@ dependencies {
     implementation "net.e175.klaus:solarpositioning:0.0.9"
     // use pristine greendao instead of our custom version, since our custom jitpack-packaged
     // version contains way too much and our custom patches are in the generator only.
-
-    implementation 'com.twofortyfouram:android-plugin-client-sdk-for-locale:[4.0.3, 5.0['
-    implementation 'com.twofortyfouram:android-plugin-host-sdk-for-locale:[2.0.3,3.0['
-    implementation 'com.twofortyfouram:android-plugin-api-for-locale:[1.0.2,2.0['
-
     implementation "org.greenrobot:greendao:2.2.1"
     implementation "org.apache.commons:commons-lang3:3.7"
     implementation "org.cyanogenmod:platform.sdk:6.0"

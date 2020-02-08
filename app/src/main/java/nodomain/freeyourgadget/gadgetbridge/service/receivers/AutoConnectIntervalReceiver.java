@@ -1,4 +1,4 @@
-/*  Copyright (C) 2019 Andreas Shimokawa
+/*  Copyright (C) 2019-2020 Andreas Shimokawa
 
     This file is part of Gadgetbridge.
 
@@ -101,6 +101,10 @@ public class AutoConnectIntervalReceiver extends BroadcastReceiver {
             am.set(AlarmManager.RTC_WAKEUP, Calendar.getInstance().
                     getTimeInMillis() + delay * 1000, pendingIntent);
         }
+    }
+
+    public void destroy() {
+        LocalBroadcastManager.getInstance(service).unregisterReceiver(this);
     }
 
 }

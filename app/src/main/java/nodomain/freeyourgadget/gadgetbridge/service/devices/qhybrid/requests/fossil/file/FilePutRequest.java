@@ -1,4 +1,4 @@
-/*  Copyright (C) 2019 Daniel Dakhno
+/*  Copyright (C) 2019-2020 Andreas Shimokawa, Daniel Dakhno
 
     This file is part of Gadgetbridge.
 
@@ -201,7 +201,7 @@ public class FilePutRequest extends FossilRequest {
 
         CRC32C crc = new CRC32C();
 
-        crc.update(file,0,data.length);
+        crc.update(file,0,file.length);
         buffer.putInt((int) crc.getValue());
 
         byte[] data = buffer.array();

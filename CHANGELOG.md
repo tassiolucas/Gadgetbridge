@@ -1,5 +1,38 @@
 ### Changelog
 
+#### Version 0.42.0
+* Initial iTag support
+* Fix indefinitely lasting bluetooth scans when location permission has not been granted
+* Try to stop incoming VoIP call notification when the call is answered
+* Vectorize some icons and add a new Mi Scale 2 icon
+* Mi Band 4: Make high MTU optional, fixes problems on some phones
+* ZeTime: Fix probably broken support (duplicate id used by Fossil)
+
+#### Version 0.41.1
+* Huami: allow to have alarms without snooze feature
+* Mi Band 2: Properly stop a call notification when text notifications are disabled
+* VoIP calls: ignore notifications with only one action, assuming it is an outgoing call
+* Try to fix notifications from Business Calendar
+
+#### Version 0.41.0
+* JYou Y5: Initial support
+* Mi Band 2/Amazfit Bip: Redesign button actions for easy music control setup and support long presses on Bip
+* Amazfit Bip: Remove RES file limit (for BipOS)
+* Huami: Automatically toggle alarm switch when toggling on the Band/Watch while in Alarm settings in Gadetbridge
+* Recogize Pixart-Messenger as Chat App
+
+#### Version 0.40.1
+* Mi Band/Amazfit: Recogize changes when toggling alarm on device (immediately when connected, else when connecting)
+* Mi Band/Amazfit: Fix some bugs with stuck connection when re-connecting
+* Mi Band 4: Support higher MTU for multiple times faster firmware transfer (probably also Amazfit GTR/GTS)
+* Amazfit Cor: Fix setting language to Chinese manually
+
+#### Version 0.40.0
+* Fossil Q Hybrid: Initial support
+* Bangle.js: Initial support
+* Reserve Alarm for Calendar feature restricted to Mi Band 1/2 and moved to per-device settings
+* New icon for App Manager
+
 #### Version 0.39.1
 * Try to actively re-connect when a connection gets interrupted (interval grows up to 64 seconds)
 * Mi Band2/Amazfip Bip: Make button action settings per-device and enable for Amazfit Bip

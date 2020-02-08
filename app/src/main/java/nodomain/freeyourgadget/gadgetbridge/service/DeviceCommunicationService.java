@@ -1,4 +1,4 @@
-/*  Copyright (C) 2015-2019 Andreas Böhler, Andreas Shimokawa, Avamander,
+/*  Copyright (C) 2015-2020 Andreas Böhler, Andreas Shimokawa, Avamander,
     Carsten Pfeiffer, Daniel Dakhno, Daniele Gobbetti, Daniel Hauck, Dikay900,
     Frank Slezak, ivanovlev, João Paulo Barraca, José Rebelo, Julien Pivotto,
     Kasha, keeshii, Martin, Matthieu Baerts, Nephiel, Sebastian Kranz, Sergey
@@ -287,7 +287,7 @@ public class DeviceCommunicationService extends Service implements SharedPrefere
                 return START_NOT_STICKY;
             }
 
-            if (mDeviceSupport == null || (!isInitialized() && !mDeviceSupport.useAutoConnect())) {
+            if (mDeviceSupport == null || (!isInitialized() && !action.equals(ACTION_DISCONNECT) && (!mDeviceSupport.useAutoConnect() || isConnected()))) {
                 // trying to send notification without valid Bluetooth connection
                 if (mGBDevice != null) {
                     // at least send back the current device state
@@ -814,6 +814,7 @@ public class DeviceCommunicationService extends Service implements SharedPrefere
             }
             if (mAutoConnectInvervalReceiver != null) {
                 unregisterReceiver(mAutoConnectInvervalReceiver);
+                mAutoConnectInvervalReceiver.destroy();
                 mAutoConnectInvervalReceiver = null;
             }
         }

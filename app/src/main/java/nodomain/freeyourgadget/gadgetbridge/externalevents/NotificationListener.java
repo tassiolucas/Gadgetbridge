@@ -1,4 +1,4 @@
-/*  Copyright (C) 2015-2019 abettenburg, Andreas Shimokawa, AndrewBedscastle,
+/*  Copyright (C) 2015-2020 abettenburg, Andreas Shimokawa, AndrewBedscastle,
     Carsten Pfeiffer, Daniel Dakhno, Daniele Gobbetti, Frank Slezak, Hasan Ammar,
     José Rebelo, Julien Pivotto, Kevin Richter, Matthieu Baerts, Normano64,
     Steffen Liebergeld, Taavi Eomäe, veecue, Zhong Jianxin
@@ -55,6 +55,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Objects;
@@ -108,9 +109,14 @@ public class NotificationListener extends NotificationListenerService {
     private HashMap<String, Long> notificationBurstPrevention = new HashMap<>();
     private HashMap<String, Long> notificationOldRepeatPrevention = new HashMap<>();
 
+    private static final List<String> groupSummaryWhitelist = Arrays.asList(
+            "mikado.bizcalpro"
+    );
+
     public static ArrayList<String> notificationStack = new ArrayList<>();
 
     private long activeCallPostTime;
+    private int mLastCallCommand = CallSpec.CALL_UNDEFINED;
 
     private final BroadcastReceiver mReceiver = new BroadcastReceiver() {
 
@@ -342,7 +348,7 @@ public class NotificationListener extends NotificationListenerService {
         List<NotificationCompat.Action> actions = wearableExtender.getActions();
 
 
-        if (actions.size() == 0 && NotificationCompat.isGroupSummary(notification)) { //this could cause #395 to come back
+        if (actions.size() == 0 && NotificationCompat.isGroupSummary(notification) && !groupSummaryWhitelist.contains(source)) { //this could cause #395 to come back
             LOG.info("Not forwarding notification, FLAG_GROUP_SUMMARY is set and no wearable action present. Notification flags: " + notification.flags);
             return;
         }
@@ -447,9 +453,20 @@ public class NotificationListener extends NotificationListenerService {
         }
         Notification noti = sbn.getNotification();
         dumpExtras(noti.extras);
+        boolean callStarted = false;
         if(noti.actions != null && noti.actions.length > 0) {
             for (Notification.Action action : noti.actions) {
                 LOG.info("Found call action: " + action.title);
+            }
+            if (noti.actions.length == 1) {
+                if (mLastCallCommand == CallSpec.CALL_INCOMING) {
+                    LOG.info("There is only one call action and previous state was CALL_INCOMING, assuming call started");
+                    callStarted = true;
+                } else {
+                    LOG.info("There is only one call action and previous state was not CALL_INCOMING, assuming outgoing call / duplicate notification and ignoring");
+                    // FIXME: is there a way to detect transition CALL_OUTGOING -> CALL_START for more complete VoIP call state tracking?
+                    return;
+                }
             }
             /*try {
                 LOG.info("Executing first action");
@@ -472,7 +489,8 @@ public class NotificationListener extends NotificationListenerService {
         activeCallPostTime = sbn.getPostTime();
         CallSpec callSpec = new CallSpec();
         callSpec.number = number;
-        callSpec.command = CallSpec.CALL_INCOMING;
+        callSpec.command = callStarted ? CallSpec.CALL_START : CallSpec.CALL_INCOMING;
+        mLastCallCommand = callSpec.command;
         GBApplication.deviceService().onSetCallState(callSpec);
     }
 
@@ -644,6 +662,7 @@ public class NotificationListener extends NotificationListenerService {
             activeCallPostTime = 0;
             CallSpec callSpec = new CallSpec();
             callSpec.command = CallSpec.CALL_END;
+            mLastCallCommand = callSpec.command;
             GBApplication.deviceService().onSetCallState(callSpec);
         }
         // FIXME: DISABLED for now
